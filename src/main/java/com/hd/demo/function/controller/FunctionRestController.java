@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/function")
+@RequestMapping(value = "/htmls")
 public class FunctionRestController {
 
     private final FunctionService functionService;

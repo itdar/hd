@@ -1,20 +1,23 @@
 package com.hd.demo.function.domain;
 
 import java.io.IOException;
+import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
 
+@RequiredArgsConstructor
 @Component
 public class Crawler {
 
     private static final int MAX_RETRY = 3;
+    private static final String CACHE_NAME = "crawler-execute";
 
     private int retryCount = 0;
 
-    @Cacheable(value = "crawler-execute", key = "#url")
-    public String execute(String url) {
+    @Cacheable(value = CACHE_NAME, key = "#url")
+    public String execute(final String url) {
         Document document = null;
         try {
             document = Jsoup.connect(url)

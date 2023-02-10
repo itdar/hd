@@ -30,6 +30,7 @@ public class Processor {
         PriorityQueue<Character> priorityQueueDigit = new PriorityQueue<>();
 
         this.classifyAlphabetAndDigitToQueues(singleChars, priorityQueueUpper, priorityQueueLower, priorityQueueDigit);
+
         return this.integrate(priorityQueueUpper, priorityQueueLower, priorityQueueDigit);
     }
 
@@ -50,7 +51,7 @@ public class Processor {
         return sb;
     }
 
-    private void classifyAlphabetAndDigitToQueues(StringBuilder merged, PriorityQueue<Character> priorityQueueUpper, PriorityQueue<Character> priorityQueueLower, PriorityQueue<Character> priorityQueueDigit) {
+    private void classifyAlphabetAndDigitToQueues(final StringBuilder merged, PriorityQueue<Character> priorityQueueUpper, PriorityQueue<Character> priorityQueueLower, PriorityQueue<Character> priorityQueueDigit) {
         for (int i = 0; i < merged.length(); ++i) {
             char c = merged.charAt(i);
 
