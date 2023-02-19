@@ -1,5 +1,6 @@
 package com.hd.demo.function.domain;
 
+import com.hd.demo.exception.CrawlerExecuteException;
 import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +26,7 @@ public class Crawler {
     private Logger logger =  LoggerFactory.getLogger(Crawler.class);
 
     @Cacheable(value = CACHE_NAME, key = "#url")
-    @Retryable(value = RuntimeException.class, maxAttempts = 2, backoff = @Backoff(delay = 100))
+    @Retryable(value = IOException.class, maxAttempts = 2, backoff = @Backoff(delay = 100))
     public String execute(final String url) {
         Document document;
         try {
@@ -33,7 +34,7 @@ public class Crawler {
                 .timeout(1000)
                 .get();
         } catch (IOException e) {
-            throw new RuntimeException("최대 재시도 후에도 크롤링에서 예외 발생");
+            throw new CrawlerExecuteException("최대 재시도 후에도 크롤링에서 예외 발생");
         }
 
         if (document != null) {
