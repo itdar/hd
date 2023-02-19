@@ -1,6 +1,6 @@
 package com.hd.demo.function.controller;
 
-import com.hd.demo.function.domain.FunctionResponse;
+import com.hd.demo.function.dto.FunctionResponse;
 import com.hd.demo.function.service.FunctionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

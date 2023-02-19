@@ -1,4 +1,4 @@
-package com.hd.demo.function.domain;
+package com.hd.demo.function.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
