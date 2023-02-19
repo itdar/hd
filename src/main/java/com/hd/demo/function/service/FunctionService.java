@@ -16,7 +16,7 @@ public class FunctionService {
     private final Crawler crawler;
     private final Processor processor;
 
-    public static Set<String> urls = new HashSet<>();
+    private static Set<String> urls = new HashSet<>();
     static {
         urls.add("https://shop.hyundai.com");
         urls.add("https://www.kia.com");
